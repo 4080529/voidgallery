@@ -1,0 +1,251 @@
+body {
+  margin: 0;
+  background: #fafafa;
+  color: #222;
+}
+
+h1 {
+  text-align: center;
+  margin: 120px 0 80px;
+  font-weight: 400;
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+.gallery {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto 140px;
+  gap: 28px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.gallery figure {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  margin: 0;
+  background: white;
+  border-radius: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery figure:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.gallery figure {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.gallery figure.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox */
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#lightbox img {
+  max-width: 90vw;
+  max-height: 80vh;
+}
+
+#lightbox {
+  backdrop-filter: blur(5px);
+}
+
+/* キャプションのフォント */
+#lightbox-caption {
+  margin-top: 25px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+#lightbox-img {
+  transition: opacity 0.35s ease;
+}
+
+.nav-btn {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+
+  border: none;              /* ← buttonの枠消す */
+  padding: 0;                /* ← 余白リセット */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+#prevBtn { left: 40px; }
+#nextBtn { right: 40px; }
+
+.nav-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-50%) scale(1.08);
+}
+#prevBtn { left: 40px; }
+#nextBtn { right: 40px; }
+
+/* ホバー時 */
+#prevBtn:hover,
+#nextBtn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+  transform: translateY(-50%) scale(1.05);
+}
+/* ナビ全体 */
+nav {
+  position: fixed;      /* 画面に固定 */
+  top: 0;
+  left: 0;
+  height: 100vh;        /* 画面の高さ全部 */
+  width: 200px;
+  background: rgba(0, 0, 0, 0.6);  /* 半透明 */
+  display: flex;
+  padding-top: 100px;
+  align-items: flex-start;
+}
+
+/* メニュー縦並び */
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 2px;
+  transition: 0.3s;
+}
+
+.menu a:hover {
+  color: #aaa;
+}
+
+/* 以下はページ間の移動*/
+
+nav {
+  background: #111;
+  padding: 15px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  color: #aaa;
+}
+
+/* 以下はTOPページの背景をデカデカと*/
+.top-page {
+  margin: 0;
+}
+
+.hero {
+  height: 100vh;               /* 画面いっぱい */
+  background-image: url("../images/climbing/006.jpg");/* ← 背景写真 */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;    /* ← これが重要 */
+  background-color: black;     /* 余白部分の色 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 {
+  color: white;
+  font-size: 3rem;
+}
+
+/* body全体を右にずらす。 */
+body {
+  margin: 0;
+  margin-left: 200px;   /* ← これが重要 */
+
+/* スマホレスポンシブ対応 */
+@media (max-width: 768px) {
+  nav {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  body {
+    margin-left: 0;
+  }
+
+  .menu {
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 0;
+  }
+}
+}
