@@ -210,7 +210,7 @@ nav {
 
 .hero {
   height: 100vh;               /* 画面いっぱい */
-  background-image: url("../images/climbing/006.jpg");/* ← 背景写真 */
+  background-image: url("../images/climbing/006.webp");/* ← 背景写真 */
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;    /* ← これが重要 */
