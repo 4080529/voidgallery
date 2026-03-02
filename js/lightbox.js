@@ -13,7 +13,9 @@ function showImage(index) {
   setTimeout(() => {
     const img = images[index];
     lightboxImg.src = img.src;
-    lightboxCaption.textContent = img.dataset.caption;
+    const figure = img.closest("figure");
+    const figcaption = figure.querySelector("figcaption");
+    lightboxCaption.innerHTML = figcaption.innerHTML;
     currentIndex = index;
     lightboxImg.style.opacity = 1;
   }, 150);
