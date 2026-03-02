@@ -84,13 +84,21 @@ h1 {
 
 /* キャプションのフォント */
 #lightbox-caption {
-  margin-top: 25px;
+  margin-top: 10px;
   font-family: 'Cormorant Garamond', serif;
   font-size: 18px;
   font-weight: 300;
   color: rgba(255,255,255,0.75);
   letter-spacing: 1px;
   text-align: center;
+}
+
+#lightbox-caption .comment {
+  font-size: 16px;
+  opacity: 0.6;
+  font-style: italic;
+  font-variant-numeric: lining-nums;
+  line-height: 0.5;
 }
 
 #lightbox-img {
